@@ -53,7 +53,7 @@ func (p Prefectures) String() string {
 type PrefecturePair [2]Prefecture
 
 func (p *PrefecturePair) Distance() float64 {
-	return p[0].Capital.Location.Distance(&p[1].Capital.Location)
+	return p[0].Capital.Coordinates.Distance(&p[1].Capital.Coordinates)
 }
 
 type PrefecturePairs []PrefecturePair
@@ -63,7 +63,7 @@ func (p PrefecturePairs) Len() int {
 }
 
 func (p PrefecturePairs) Less(i, j int) bool {
-	return []PrefecturePair(p)[i][0].Capital.Location.Distance(&[]PrefecturePair(p)[i][1].Capital.Location) < []PrefecturePair(p)[j][0].Capital.Location.Distance(&[]PrefecturePair(p)[j][1].Capital.Location)
+	return []PrefecturePair(p)[i][0].Capital.Coordinates.Distance(&[]PrefecturePair(p)[i][1].Capital.Coordinates) < []PrefecturePair(p)[j][0].Capital.Coordinates.Distance(&[]PrefecturePair(p)[j][1].Capital.Coordinates)
 }
 
 func (p PrefecturePairs) Swap(i, j int) {
