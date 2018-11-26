@@ -3,7 +3,7 @@ package polis
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"github.com/yu81/polis/jp"
+	"github.com/yu81/polis/countries/jp"
 	"math"
 	"sort"
 	"testing"

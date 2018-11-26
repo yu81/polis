@@ -1,6 +1,6 @@
 package polis
 
-import "github.com/yu81/polis/jp"
+import "github.com/yu81/polis/countries/jp"
 
 type Region string
 
