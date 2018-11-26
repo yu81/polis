@@ -54,7 +54,8 @@ func allJPPrefPairs() []PrefecturePair {
 
 func TestPrefectureCapitalDistance(t *testing.T) {
 	for _, v := range allJPPrefPairs() {
-		fmt.Printf("Distance between %s and %s%f km\n", v[0].Capital.Name, v[1].Capital.Name, v[0].Capital.Coordinates.Distance(&v[1].Capital.Coordinates))
+		c := v[1].Capital.Coordinates()
+		fmt.Printf("Distance between %s and %s%f km\n", v[0].Capital.Name, v[1].Capital.Name, v[0].Capital.Distance(&c))
 	}
 }
 
