@@ -3,6 +3,7 @@ package polis
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/yu81/polis/countries/jp"
 	"strings"
 )
 
@@ -38,6 +39,16 @@ func PrefecturesFromString(jsonPrefectures string) Prefectures {
 		return []Prefecture{}
 	}
 	return result
+}
+
+func GetPrefectures(country string) Prefectures {
+	switch country {
+	case "jp":
+		return PrefecturesFromString(jp.Prefectures)
+		// TODO: other countries.
+	default:
+		return []Prefecture{}
+	}
 }
 
 func (p Prefectures) String() string {

@@ -3,7 +3,6 @@ package polis
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"github.com/yu81/polis/countries/jp"
 	"math"
 	"sort"
 	"testing"
@@ -31,7 +30,7 @@ func TestPrefecturePair_Distance(t *testing.T) {
 }
 func BenchmarkPrefecturesByRegions(b *testing.B) {
 	regions := Regions("jp")
-	prefs := PrefecturesFromString(jp.Prefectures)
+	prefs := GetPrefectures("jp")
 	for _, r := range regions {
 		b.Run(string(r), func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
@@ -43,7 +42,7 @@ func BenchmarkPrefecturesByRegions(b *testing.B) {
 
 func allJPPrefPairs() []PrefecturePair {
 	result := make(PrefecturePairs, 0, 47*23)
-	prefs := PrefecturesFromString(jp.Prefectures)
+	prefs := GetPrefectures("jp")
 	for i := 0; i < len(prefs); i++ {
 		for j := i + 1; j < len(prefs); j++ {
 			result = append(result, PrefecturePair{prefs[i], prefs[j]})
